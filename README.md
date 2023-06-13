@@ -42,3 +42,10 @@ sqlite3 /var/lib/grafana/grafana.db
 select id, title, condition from alert_rule;
 delete from alert_rule where id = 6;
 ```
+
+# Export an alert rule in provisioning file format
+
+```
+GET	/api/v1/provisioning/alert-rules/{UID}/export
+```
+> example: `https://local-grafana.com/api/v1/provisioning/alert-rules/fe975fb0-6bd0-4442-9cdb-0f04e09d4e99/export`
