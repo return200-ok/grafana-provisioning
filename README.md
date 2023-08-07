@@ -49,3 +49,19 @@ delete from alert_rule where id = 6;
 GET	/api/v1/provisioning/alert-rules/{UID}/export
 ```
 > example: `https://local-grafana.com/api/v1/provisioning/alert-rules/fe975fb0-6bd0-4442-9cdb-0f04e09d4e99/export`
+
+> v9.2.5  `GET	/api/v1/provisioning/alert-rules/{UID}/export`
+
+# Templating labels and annotations
+![Alt text](image.png)
+- If lables is in Alert:
+```
+{{ index $values.B0.Labels "netflow.ipv4_dst_addr" }}
+```
+
+- If the $labels variable contains the labels from the query.
+```
+{{ $lables.names }}
+```
+
+- more: https://grafana.com/docs/grafana/latest/alerting/fundamentals/annotation-label/variables-label-annotation/
